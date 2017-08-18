@@ -1,0 +1,44 @@
+
+
+
+<h1>New Question</h1>
+<form (submit)="addQuestion()" #questionForm="ngForm">
+      <div [ngStyle]="{'display': 'inline-flex'}">
+            <label>Question: </label>
+            <input type="text" name="question" [(ngModel)]="trivia.question" #question="ngModel" required minlength="5">
+            <div *ngIf="!question.valid && question.dirty" >Question must contain at least 5 letters</div>
+            <div *ngIf="question.valid" >Question is valid!</div>
+      </div>
+      <br>
+      <br>
+
+      <div [ngStyle]="{'display': 'inline-flex'}">
+        <label>Correct Answer: </label>
+              <input type="text" name="answer" [(ngModel)]="trivia.answer" #answer="ngModel" required>
+              <div *ngIf="!answer.valid && answer.dirty" >Answer is required</div>
+              <div *ngIf="answer.valid" >Answer is valid!</div>
+      </div>
+      <br>
+      <br>
+
+      <div [ngStyle]="{'display': 'inline-flex'}">
+            <label>Fake Answer 1: </label>
+            <input type="text" name="fakeAnswer1" [(ngModel)]="trivia.fakeAnswer1" #fakeAnswer1="ngModel" required>
+            <div *ngIf="!fakeAnswer1.valid && fakeAnswer1.dirty" >Fake Answer1 is required</div>
+            <div *ngIf="fakeAnswer1.valid" >Fake Answer1 is valid!</div>
+      </div>
+      <br>
+      <br>
+
+      <div [ngStyle]="{'display': 'inline-flex'}">
+              <label>Fake Answer 2: </label>
+              <input type="text" name="fakeAnswer2" [(ngModel)]="trivia.fakeAnswer2" #fakeAnswer2="ngModel" required>
+              <div *ngIf="!fakeAnswer2.valid && fakeAnswer2.dirty" >Fake Answer2 is required</div>
+              <div *ngIf="fakeAnswer2.valid" >Fake Answer2 is valid!</div>
+      </div>
+      <br>
+      <br>
+
+      <button (click)="cancel()" >Cancel</button>
+      <button type='submit' [disabled]="!questionForm.form.valid"> Add Question</button>
+</form>

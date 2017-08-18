@@ -1,0 +1,32 @@
+<h1>Hi {{user.username}}</h1>
+<h1>Choose an answer for each of the questions and submit the test once done.</h1>
+<h1>Good luck!</h1>
+
+
+<form (submit)="checkAnswers()" #trivForm="ngForm">
+
+  <div>
+    <p>1. {{questions[0].question}}</p>
+    <input type="radio" name="resp" value="0" required [(ngModel)]="playerChoices[0]">{{questions[0].options[0]}} <br>
+    <input type="radio" name="resp" value="1" required [(ngModel)]="playerChoices[0]">{{questions[0].options[1]}} <br>
+    <input type="radio" name="resp" value="2" required [(ngModel)]="playerChoices[0]">{{questions[0].options[2]}} <br>
+  </div>
+
+  <div>
+    <p>2. {{questions[1].question}}</p>
+    <input type="radio" name="resp1" value="0" required [(ngModel)]="playerChoices[1]">{{questions[1].options[0]}} <br>
+    <input type="radio" name="resp1" value="1" required [(ngModel)]="playerChoices[1]">{{questions[1].options[1]}} <br>
+    <input type="radio" name="resp1" value="2" required [(ngModel)]="playerChoices[1]">{{questions[1].options[2]}} <br>
+  </div>
+
+  <div>
+    <p>3. {{questions[2].question}}</p>
+    <input type="radio" name="resp2" value="0" required [(ngModel)]="playerChoices[2]">{{questions[2].options[0]}} <br>
+    <input type="radio" name="resp2" value="1" required [(ngModel)]="playerChoices[2]">{{questions[2].options[1]}} <br>
+    <input type="radio" name="resp2" value="2" required [(ngModel)]="playerChoices[2]">{{questions[2].options[2]}} <br>
+  </div>
+  <br>
+  <br>
+  <button (click)="cancel()" >Cancel</button>
+  <button type='submit' [disabled]="!trivForm.form.valid"> Sumbit</button>
+</form>

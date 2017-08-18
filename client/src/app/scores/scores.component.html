@@ -1,0 +1,30 @@
+
+<br>
+    <div *ngFor="let s of allScores">
+        <div *ngIf='s.username.includes(user.username)'>
+          <p>Hi {{s.username}}, your score is {{s.score}} / 3 ({{s.percentage}}%)</p>
+        </div>
+    </div>
+<br>
+<button (click)="play()">Play!</button>
+<br>
+<p>Click the button above to start the trivia game.</p>
+
+<label>SearchBox: </label><input type="text" name="search" [(ngModel)]="searchText" placeholder="Username">
+
+<table>
+      <tr>
+          <div>
+            <th>Name</th>
+            <th>Score</th>
+            <th>Percentage</th>
+          </div>
+      </tr>
+      <tr *ngFor="let s of allScores">
+          <div *ngIf='s.username.includes(searchText)'>
+            <td>{{s.username}}</td>
+            <td>{{s.score}} / 3</td>
+            <td>{{s.percentage}} %</td>
+          </div>
+      </tr>
+</table>
